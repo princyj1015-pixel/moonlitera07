@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Princy · Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--night:#0d0a22;--night2:#1a1440;--gold:#e8b94a;--gold2:#fff1b8;--ruby:#8c1d2f;--emerald:#1f6b4f;--parch:#f3e4bf;--ink:#3a2410;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:radial-gradient(ellipse at top,var(--night2),var(--night) 70%) fixed;color:#efe6ff;font-family:'Crimson Pro',Georgia,serif;font-size:1.2rem;line-height:1.65;overflow-x:hidden}
+h1,h2,h3{font-family:'Cinzel',Georgia,serif;margin:0}
+#stars{position:fixed;inset:0;pointer-events:none;z-index:0}
+.star{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;animation:tw 3s infinite ease-in-out}
+@keyframes tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1.3)}}
+section,header,footer{position:relative;z-index:1}
+.wrap{max-width:980px;margin:0 auto;padding:4.5rem 1.2rem}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:.3rem 1.2rem;justify-content:center;flex-wrap:wrap;padding:.7rem;background:rgba(13,10,34,.8);backdrop-filter:blur(8px);border-bottom:1px solid rgba(232,185,74,.3);font-family:'Cinzel',serif;font-size:.95rem}
+nav a{color:var(--gold2);text-decoration:none;padding:.2rem .4rem}
+nav a:hover,nav a:focus-visible{color:var(--gold);outline:none;text-shadow:0 0 10px var(--gold)}
+/* hero */
+.hero{min-height:92vh;display:grid;place-items:center;text-align:center;padding:2rem 1rem;overflow:hidden}
+.hero h1{font-family:'Cinzel Decorative',serif;font-weight:900;font-size:clamp(3.4rem,15vw,8rem);line-height:1;background:linear-gradient(180deg,var(--gold2),var(--gold) 55%,#a56b16);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 18px rgba(232,185,74,.45));animation:glow 4s infinite ease-in-out}
+@keyframes glow{50%{filter:drop-shadow(0 0 34px rgba(232,185,74,.85))}}
+.hero p.sub{font-family:'Cinzel',serif;font-size:clamp(1rem,3.4vw,1.5rem);letter-spacing:.06em;color:var(--gold2);margin:.8rem 0 0}
+.hero .vision{font-style:italic;color:#cbbff0;margin-top:.6rem}
+.scene{width:min(340px,80vw);margin:0 auto 1rem;position:relative}
+.scene svg{width:100%;height:auto;overflow:visible}
+.hat{transform-origin:50% 100%;animation:bob 4s infinite ease-in-out}
+@keyframes bob{50%{transform:translateY(-8px) rotate(2deg)}}
+.owl{animation:float 5s infinite ease-in-out;transform-origin:center}
+@keyframes float{50%{transform:translateY(-12px)}}
+.wing-l{transform-origin:62px 118px;animation:flapl .9s infinite ease-in-out}
+.wing-r{transform-origin:138px 118px;animation:flapr .9s infinite ease-in-out}
+@keyframes flapl{50%{transform:rotate(-24deg)}}
+@keyframes flapr{50%{transform:rotate(24deg)}}
+.eye{transform-origin:center;animation:blink 5s infinite}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+.snitch{position:absolute;top:0;left:0;width:54px;z-index:3;animation:zoom 14s infinite linear;pointer-events:none}
+.snitch .sw{transform-origin:50% 50%;animation:buzz .12s infinite alternate}
+@keyframes buzz{to{transform:scaleY(.55)}}
+@keyframes zoom{0%{transform:translate(8vw,30vh)}20%{transform:translate(70vw,12vh) rotate(10deg)}40%{transform:translate(85vw,60vh)}60%{transform:translate(40vw,78vh) rotate(-8deg)}80%{transform:translate(12vw,50vh)}100%{transform:translate(8vw,30vh)}}
+.candles{position:absolute;inset:0;pointer-events:none;z-index:0}
+.candle{position:absolute;width:14px;height:62px;border-radius:4px 4px 2px 2px;background:linear-gradient(90deg,#f6ecd0,#d9c79c);animation:cfloat 6s infinite ease-in-out}
+.candle::before{content:"";position:absolute;left:50%;top:-22px;width:12px;height:22px;margin-left:-6px;border-radius:50% 50% 50% 50%/65% 65% 35% 35%;background:radial-gradient(circle at 50% 70%,#fff,#ffd36b 50%,#ff8a2a);box-shadow:0 0 22px 8px rgba(255,190,80,.55);animation:flame .3s infinite alternate}
+@keyframes flame{to{transform:scale(1.12,.92) rotate(3deg)}}
+@keyframes cfloat{50%{transform:translateY(-16px)}}
+.scroll{display:inline-block;margin-top:1.5rem;font-family:'Cinzel',serif;color:var(--night);background:linear-gradient(var(--gold2),var(--gold));padding:.7rem 1.6rem;border-radius:999px;text-decoration:none;font-weight:700;box-shadow:0 0 22px rgba(232,185,74,.5);transition:transform .2s}
+.scroll:hover,.scroll:focus-visible{transform:scale(1.07)}
+/* headings */
+.h2{font-family:'Cinzel Decorative',serif;font-size:clamp(1.8rem,6vw,2.8rem);text-align:center;color:var(--gold);margin-bottom:2rem;text-shadow:0 0 18px rgba(232,185,74,.4)}
+.h2::after{content:"⚡";display:block;font-size:1.2rem;margin-top:.2rem;color:var(--gold2)}
+/* parchment */
+.parch{background:radial-gradient(circle at 20% 10%,#fbf0d2,var(--parch) 60%,#dcc590);color:var(--ink);border-radius:10px 24px 12px 28px;padding:2rem 1.6rem;box-shadow:0 12px 40px rgba(0,0,0,.5),inset 0 0 50px rgba(140,90,30,.35);position:relative}
+.parch p{margin:.2rem 0 1rem}
+.parch strong{font-family:'Cinzel',serif}
+.journey{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:1rem}
+.journey div{border:2px solid rgba(140,29,47,.55);border-radius:12px;padding:.7rem 1rem;background:rgba(255,248,225,.55)}
+.journey small{display:block;font-family:'Cinzel',serif;color:var(--ruby);font-weight:700;font-size:.85rem}
+.quote-in{margin-top:1.4rem;font-style:italic;font-size:1.3rem;text-align:center;color:var(--ruby)}
+/* skills */
+.book{display:flex;gap:1.5rem;align-items:center;justify-content:center;flex-wrap:wrap}
+.rune{width:170px;height:170px;border-radius:50%;display:grid;place-items:center;text-align:center;font-family:'Cinzel Decorative',serif;font-size:1.7rem;color:var(--gold2);background:radial-gradient(circle,#2b2060,#15103a);border:3px solid var(--gold);box-shadow:0 0 30px rgba(232,185,74,.6),inset 0 0 30px rgba(232,185,74,.3);position:relative;animation:glow2 3s infinite ease-in-out}
+.rune::before{content:"";position:absolute;inset:-14px;border-radius:50%;border:2px dashed rgba(232,185,74,.7);animation:spin 18s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes glow2{50%{box-shadow:0 0 52px rgba(232,185,74,.95),inset 0 0 30px rgba(232,185,74,.3)}}
+.book p{max-width:34ch;margin:0}
+.book em{color:var(--gold2)}
+/* goals */
+.goals{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.goal{border-radius:16px;padding:1.1rem 1.2rem;background:linear-gradient(135deg,rgba(140,29,47,.55),rgba(26,20,64,.9));border:1px solid rgba(232,185,74,.5);transition:transform .25s,box-shadow .25s;cursor:default}
+.goal:nth-child(3n+2){background:linear-gradient(135deg,rgba(31,107,79,.55),rgba(26,20,64,.9))}
+.goal:nth-child(3n){background:linear-gradient(135deg,rgba(150,105,20,.5),rgba(26,20,64,.9))}
+.goal:hover{transform:translateY(-6px) rotate(-1deg);box-shadow:0 10px 30px rgba(232,185,74,.35)}
+.goal h3{font-size:1.1rem;color:var(--gold2);margin-bottom:.2rem}
+.goal p{margin:0;font-size:1.08rem;color:#e2d9f8}
+.vision-box{margin-top:2rem;text-align:center;font-family:'Cinzel',serif;font-size:clamp(1.1rem,4vw,1.6rem);color:var(--gold2);padding:1.4rem;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold)}
+/* quotes */
+.qbox{min-height:230px;display:grid;place-items:center;text-align:center;padding:2.2rem 1.4rem;border-radius:20px;background:rgba(255,255,255,.06);border:1px solid rgba(232,185,74,.5);box-shadow:0 0 40px rgba(122,90,255,.25)}
+.qbox blockquote{margin:0;font-family:'Cinzel',serif;font-size:clamp(1.15rem,4.4vw,1.8rem);line-height:1.45;color:#fff;transition:opacity .5s,transform .5s}
+.qbox cite{display:block;margin-top:1rem;font-family:'Crimson Pro',serif;font-size:1.1rem;color:var(--gold);font-style:italic}
+.qbox.out blockquote{opacity:0;transform:translateY(10px)}
+.qbtn{display:block;margin:1.2rem auto 0;font-family:'Cinzel',serif;font-weight:700;font-size:1rem;color:var(--night);background:linear-gradient(var(--gold2),var(--gold));border:0;border-radius:999px;padding:.7rem 1.5rem;cursor:pointer;box-shadow:0 0 18px rgba(232,185,74,.5)}
+.qbtn:focus-visible,.scroll:focus-visible{outline:3px solid #fff;outline-offset:3px}
+/* contact + footer */
+.contact{text-align:center}
+.contact .name{font-family:'Cinzel Decorative',serif;font-size:2.4rem;color:var(--gold);text-shadow:0 0 20px rgba(232,185,74,.6)}
+footer{text-align:center;padding:2rem 1rem 3rem;color:#b5a8dc;font-style:italic}
+.sp{position:fixed;pointer-events:none;z-index:9;width:10px;height:10px;font-size:14px;line-height:10px;color:var(--gold2);animation:fade .9s forwards}
+@keyframes fade{to{opacity:0;transform:translateY(24px) scale(.2) rotate(120deg)}}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s}
+.js .rv.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="stars" aria-hidden="true"></div>
+<nav aria-label="Sections"><a href="#top">Home</a><a href="#about">About</a><a href="#journey">Journey</a><a href="#skills">Skills</a><a href="#goals">Goals</a><a href="#quotes">Quotes</a><a href="#contact">Contact</a></nav>
+
+<header class="hero" id="top">
+  <div class="candles" aria-hidden="true">
+    <i class="candle" style="left:6%;top:14%;animation-delay:-1s"></i><i class="candle" style="left:20%;top:6%;height:48px;animation-delay:-3s"></i>
+    <i class="candle" style="left:80%;top:8%;animation-delay:-2s"></i><i class="candle" style="left:93%;top:20%;height:50px;animation-delay:-4s"></i>
+    <i class="candle" style="left:12%;top:60%;height:44px;animation-delay:-5s"></i><i class="candle" style="left:88%;top:62%;animation-delay:-.5s"></i>
+  </div>
+  <svg class="snitch" viewBox="0 0 60 40" aria-hidden="true"><g class="sw"><path d="M26 20C14 4 2 8 0 14c6 2 14 4 26 6z" fill="#fff6d0" stroke="#c9a23c"/><path d="M34 20C46 4 58 8 60 14c-6 2-14 4-26 6z" fill="#fff6d0" stroke="#c9a23c"/></g><circle cx="30" cy="22" r="8" fill="#f2c84b" stroke="#a87b10" stroke-width="1.5"/><circle cx="27.5" cy="19.5" r="2.3" fill="#fff" opacity=".8"/></svg>
+  <div>
+    <div class="scene" aria-hidden="true">
+      <svg viewBox="0 0 200 230">
+        <g class="hat"><path d="M100 4c-6 30-22 52-42 70h84C124 56 108 34 100 4z" fill="#241a5c" stroke="#e8b94a" stroke-width="2"/><path d="M40 78c20 12 100 12 120 0 4 8-4 16-60 18S36 86 40 78z" fill="#1a1440" stroke="#e8b94a" stroke-width="2"/><path d="M78 62h44" stroke="#8c1d2f" stroke-width="7" stroke-linecap="round"/><path d="M100 24l4 9 10 1-8 6 3 10-9-5-9 5 3-10-8-6 10-1z" fill="#e8b94a"/></g>
+        <g class="owl">
+          <ellipse cx="100" cy="150" rx="46" ry="54" fill="#b98852" stroke="#5a3a1c" stroke-width="3"/>
+          <ellipse cx="100" cy="165" rx="28" ry="36" fill="#f3e0b8"/>
+          <g class="wing-l"><path d="M62 118c-30 10-40 50-18 82 10-10 22-22 26-40z" fill="#8a5c2e" stroke="#5a3a1c" stroke-width="3"/></g>
+          <g class="wing-r"><path d="M138 118c30 10 40 50 18 82-10-10-22-22-26-40z" fill="#8a5c2e" stroke="#5a3a1c" stroke-width="3"/></g>
+          <circle cx="80" cy="120" r="19" fill="#fff" stroke="#5a3a1c" stroke-width="3"/><circle cx="120" cy="120" r="19" fill="#fff" stroke="#5a3a1c" stroke-width="3"/>
+          <g class="eye"><circle cx="82" cy="121" r="9" fill="#2b1a6b"/><circle cx="122" cy="121" r="9" fill="#2b1a6b"/><circle cx="85" cy="117" r="3" fill="#fff"/><circle cx="125" cy="117" r="3" fill="#fff"/></g>
+          <path d="M94 132l6 12 6-12z" fill="#e8a02a" stroke="#8a5a10" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M88 200l-8 12M100 204v12M112 200l8 12" stroke="#e8a02a" stroke-width="5" stroke-linecap="round"/>
+          <g fill="none" stroke="#e8b94a" stroke-width="3"><circle cx="80" cy="120" r="24"/><circle cx="120" cy="120" r="24"/><path d="M104 120h-8"/></g>
+        </g>
+      </svg>
+    </div>
+    <h1>Princy</h1>
+    <p class="sub">B.E. Computer Science &amp; Engineering · SRM Valliammai Engineering College</p>
+    <p class="vision">“Learn with purpose. Build with passion. Grow beyond limits.”</p>
+    <a class="scroll" href="#about">Open my story</a>
+  </div>
+</header>
+
+<section id="about" class="wrap rv">
+  <h2 class="h2">About Me</h2>
+  <div class="parch">
+    <p>I’m Princy, a first-year B.E. Computer Science and Engineering student at SRM Valliammai Engineering College. I’m someone with big dreams, curious thoughts, and a constant desire to learn, explore, and create.</p>
+    <p>I chose CSE because I enjoy understanding how technology works, solving problems, and turning ideas into something useful. Right now, I’m building my foundation in programming, problem-solving, web development, and technology while discovering new areas of computer science.</p>
+    <p>This portfolio is a glimpse into my journey — the things I learn, the skills I develop, the projects I build, and the goals I’m working towards throughout my college years. 🚀</p>
+  </div>
+</section>
+
+<section id="journey" class="wrap rv">
+  <h2 class="h2">Academic Journey</h2>
+  <div class="parch">
+    <div class="journey">
+      <div><small>Degree</small>B.E. Computer Science &amp; Engineering</div>
+      <div><small>College</small>SRM Valliammai Engineering College</div>
+      <div><small>Current</small>1st Year — Semester 1</div>
+      <div><small>Batch</small>2026 – 2030</div>
+    </div>
+    <p class="quote-in">“Dream big, learn fearlessly, and build something worth remembering.” ✨</p>
+  </div>
+</section>
+
+<section id="skills" class="wrap rv">
+  <h2 class="h2">My Spellbook</h2>
+  <div class="book">
+    <div class="rune">Python</div>
+    <p>My first spell is <em>Python</em>. I’m learning it step by step, one program at a time. 🐍✨</p>
+  </div>
+</section>
+
+<section id="goals" class="wrap rv">
+  <h2 class="h2">My Career Goals</h2>
+  <div class="goals">
+    <div class="goal"><h3>💻 Master programming</h3><p>Build strong skills in Python, JavaScript, and other technologies.</p></div>
+    <div class="goal"><h3>🧠 Strengthen problem-solving</h3><p>Improve my DSA and logical-thinking skills.</p></div>
+    <div class="goal"><h3>🛠️ Build real projects</h3><p>Turn ideas into useful and creative applications.</p></div>
+    <div class="goal"><h3>🌱 Gain experience</h3><p>Participate in internships, hackathons, and technical events.</p></div>
+    <div class="goal"><h3>🤝 Grow as a leader</h3><p>Develop communication, teamwork, and leadership skills.</p></div>
+    <div class="goal"><h3>🌍 Stay future-ready</h3><p>Keep learning new technologies, especially AI and emerging fields.</p></div>
+    <div class="goal"><h3>🎯 Build a successful career</h3><p>Become a skilled software professional and create technology that makes an impact.</p></div>
+  </div>
+  <div class="vision-box">✨ Learn with purpose. Build with passion. Grow beyond limits. ✨</div>
+</section>
+
+<section id="quotes" class="wrap rv">
+  <h2 class="h2">Words of Power</h2>
+  <div class="qbox" id="qbox"><div><blockquote id="qt"></blockquote><cite id="qa"></cite></div></div>
+  <button class="qbtn" id="qn" type="button">⚡ Cast a new quote</button>
+</section>
+
+<section id="contact" class="wrap rv contact">
+  <h2 class="h2">Contact</h2>
+  <div class="name">Princy</div>
+</section>
+
+<footer>Made with a little magic and a lot of Python. 🦉</footer>
+
+<script>
+(function(){
+document.documentElement.classList.add('js');
+setTimeout(function(){document.querySelectorAll('.rv').forEach(function(el){el.classList.add('on')})},1800);
+var st=document.getElementById('stars'),i,s;
+for(i=0;i<90;i++){s=document.createElement('span');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=(Math.random()*3)+'s';s.style.transform='scale('+(.5+Math.random())+')';st.appendChild(s)}
+var Q=[
+["Let your ambition be louder than your doubts, and let your success become the answer.","Princy"],
+["The future belongs to those who believe in the beauty of their dreams.","Eleanor Roosevelt"],
+["Success is the sum of small efforts, repeated day in and day out.","Robert Collier"],
+["The expert in anything was once a beginner.","Helen Hayes"],
+["Talk is cheap. Show me the code.","Linus Torvalds"],
+["First, solve the problem. Then, write the code.","John Johnson"],
+["Don’t watch the clock; do what it does. Keep going.","Sam Levenson"],
+["Dream big, learn fearlessly, and build something worth remembering.","Princy"]
+],n=0,box=document.getElementById('qbox'),qt=document.getElementById('qt'),qa=document.getElementById('qa'),t;
+function show(){box.classList.add('out');setTimeout(function(){qt.textContent='“'+Q[n][0]+'”';qa.textContent='— '+Q[n][1];box.classList.remove('out')},450)}
+function next(){n=(n+1)%Q.length;show();clearInterval(t);t=setInterval(next,7000)}
+qt.textContent='“'+Q[0][0]+'”';qa.textContent='— '+Q[0][1];
+document.getElementById('qn').addEventListener('click',next);t=setInterval(next,7000);
+var io=window.IntersectionObserver?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.05}):null;
+document.querySelectorAll('.rv').forEach(function(el){io?io.observe(el):el.classList.add('on')});
+var last=0,marks=['✦','✧','⚡','✨'];
+function spark(x,y){var now=Date.now();if(now-last<45)return;last=now;var e=document.createElement('span');e.className='sp';e.textContent=marks[Math.floor(Math.random()*4)];e.style.left=x+'px';e.style.top=y+'px';document.body.appendChild(e);setTimeout(function(){e.remove()},950)}
+window.addEventListener('mousemove',function(e){spark(e.clientX,e.clientY)});
+window.addEventListener('touchmove',function(e){var p=e.touches[0];spark(p.clientX,p.clientY)},{passive:true});
+window.addEventListener('click',function(e){for(var k=0;k<6;k++)spark(e.clientX+k*7-20,e.clientY+(k%2)*8);});
+})();
+</script>
+</body>
+</html>
